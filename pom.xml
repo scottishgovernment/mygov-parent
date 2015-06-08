@@ -167,6 +167,13 @@
           <version>2.5</version>
         </plugin>
 
+        <plugin>
+          <groupId>org.vafer</groupId>
+          <artifactId>jdeb</artifactId>
+          <version>1.4</version>
+          <extensions>true</extensions>
+        </plugin>
+
       </plugins>
     </pluginManagement>
 
