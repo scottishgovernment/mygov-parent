@@ -43,6 +43,27 @@
         <artifactId>buildnumber-maven-plugin</artifactId>
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <id>enforce</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>1.8</version>
+                </requireJavaVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
 
     <pluginManagement>
@@ -193,17 +214,49 @@
 
   </build>
 
-    <distributionManagement>
-        <repository>
-            <id>release</id>
-            <name>Internal Releases</name>
-            <url>http://repo.digital.gov.uk/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Internal Snapshots</name>
-            <url>http://repo.digital.gov.uk/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>release</id>
+      <name>Internal Releases</name>
+      <url>http://repo.digital.gov.uk/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Internal Snapshots</name>
+      <url>http://repo.digital.gov.uk/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>enforce</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireReleaseVersion>
+                      <message>No snapshot versions allowed in CI builds.</message>
+                    </requireReleaseVersion>
+                    <requireReleaseDeps>
+                      <message>No snapshot dependencies allowed in CI builds.</message>
+                    </requireReleaseDeps>
+                  </rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
