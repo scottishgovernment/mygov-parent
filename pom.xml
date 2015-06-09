@@ -67,6 +67,11 @@
                 <requireJavaVersion>
                   <version>1.8</version>
                 </requireJavaVersion>
+                <bannedDependencies>
+                  <excludes>
+                    <exclude>commons-logging</exclude>
+                  </excludes>
+                </bannedDependencies>
               </rules>
             </configuration>
           </execution>
