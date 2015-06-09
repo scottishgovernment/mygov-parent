@@ -3,7 +3,7 @@
 
   <groupId>scot.mygov</groupId>
   <artifactId>mygov-parent</artifactId>
-  <version>3</version>
+  <version>4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>mygov-parent</name>
@@ -40,7 +40,7 @@
   <scm>
     <connection>scm:git:ssh://git@stash.digital.gov.uk:7999/mgv/mygov-parent.git</connection>
     <url>http://stash.digital.gov.uk/projects/MGV/repos/mygov-parent/</url>
-    <tag>mygov-parent-3</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <build>
