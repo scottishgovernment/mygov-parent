@@ -18,6 +18,15 @@
     <url>https://mygov.scot/</url>
   </organization>
 
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+      <comments>Crown Copyright</comments>
+    </license>
+  </licenses>
+
   <issueManagement>
     <system>JIRA</system>
     <url>https://jira.digital.gov.uk</url>
